@@ -28,10 +28,8 @@ class Login extends Component {
     const pswd = password.split('');
     const SIX = 6;
     console.log(pswd);
-    if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email) && pswd.length >= SIX) {
-      return (true);
-    }
-    return (false);
+    return !!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)
+      && pswd.length >= SIX);
   }
 
   handleChange({ target }) {
@@ -51,7 +49,7 @@ class Login extends Component {
           </div>
           <div className="card-content">
             <label htmlFor="email">
-              e-mail:
+
               <input
                 type="email"
                 name="email"
@@ -64,7 +62,7 @@ class Login extends Component {
             </label>
 
             <label htmlFor="password">
-              senha:
+
               <input
                 type="password"
                 name="password"
